@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="p-3 flex flex-col bg-blue-400 items-center rounded-md">
+        <a href="{% url 'doctorSignup' %}" class="text-white font-bold">Signup as doctor</a>
+        <p>or</p>
+        <a href="{% url 'userSignup' %}" class="text-white font-bold">Signup as user</a>
+    </div>
+{% endblock content %}
+    

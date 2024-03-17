@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} login {% endblock %}
+
+{% block content %}
+
+<div class="p-4 bg-blue-200 overflow-auto rounded-md">
+    <form action="{% url 'login' %}" class="flex flex-col" method="post">
+            {% csrf_token %}
+            {{form}}
+        <button type="submit">login</button>
+    </form>
+</div>
+
+{% endblock %}

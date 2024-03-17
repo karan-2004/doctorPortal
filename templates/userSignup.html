@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} signup {% endblock %}
+
+{% block content %}
+
+<div class="h-[80%] p-4 bg-blue-200 overflow-auto rounded-md">
+    <form action="{% url 'userSignup' %}" class="grid grid-cols-2 gap-x-2" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+        <button type="submit">SIGNUP</button>
+    </form>
+</div>
+
+{% endblock %}

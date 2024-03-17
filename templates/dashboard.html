@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <div class="flex flex-col bg-blue-400 p-4 rounded-md">
+
+        <div class="flex justify-between">
+            {% if user.role == 1 %}
+                <p>DOCTOR</p>
+            {% else %}
+                <p>USER</p>
+            {% endif %}
+            <form action="{% url 'logout' %}" class="flex items-center mt-2" method="post">
+                {% csrf_token %}
+                <input type="submit" class="p-1 w-full cursor-pointer" value="logout">
+            </form>
+        </div>
+        
+        {% for obj, val in userobj %}
+
+            
+            {% if obj in fields %}
+                
+                {% if obj == 'profilePicture' %}
+                    <p class="text-white font-semibold text-lg">{{obj}}</p><img  src="/media/{{val}}" width="10%"  alt="profilePicture">
+                {% else %}
+                    <p class="text-white font-semibold text-lg">{{obj}} : {{val}}</p>
+                {% endif %}
+
+            {% endif %}
+                
+        {% endfor %}
+            
+    
+    </div>
+{% else %}
+    <div class="flex flex-col p-2 items-center bg-blue-400 w-32 h-24 justify-between rounded-md">
+        <a href="{% url 'login' %}" class="text-white font-bold">LOGIN</a>
+        <p>OR</p>
+        <a href="{% url 'signupNav' %}" class="text-white font-bold">SIGNUP</a>
+    </div>
+{% endif %}
+    
+{% endblock %}

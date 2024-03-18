@@ -73,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'doctorportal.wsgi.application'
-
+ROOT_URLCONF = 'doctorportal.urls'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
